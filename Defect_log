@@ -1,0 +1,31 @@
+Defect ID: LIB-APP-101 (Hypothetical Jira Ticket)
+Title:Application crashes with NullPointerException when scrolling 'My Books' list exceeding 50 items.
+Environment: QA Environment v1.0.0; Android 12, Pixel 4a.
+Priority: High
+Severity: Critical (S1)
+Reporter: [Your Name]
+Assignee: Development Team
+
+Description:
+The application terminates unexpectedly when a member navigates to the 'My Books' section and scrolls through a list containing more than 50 books. This blocks the user from accessing their core account information.
+
+Steps to Reproduce:
+
+Log in to the application with a Member account that has more than 50 books checked out (e.g., use test account stress_member_01).
+
+From the Dashboard, navigate to the 'My Books' section.
+
+Quickly scroll to the bottom of the list.
+
+Observe the application freeze for 2 seconds, then crash with an "App Not Responding" dialog.
+
+Expected Result:
+The list should scroll smoothly, utilizing lazy loading if necessary, and display all checked-out books without crashing.
+
+Actual Result:
+The application crashes, forcing the user to restart it.
+
+Evidence:
+
+Attachment/Screenshot
+
