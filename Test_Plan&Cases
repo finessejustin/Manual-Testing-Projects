@@ -1,0 +1,50 @@
+Project 1: Local Library Mobile App
+Test Documentation Suite
+
+1. Test Plan Document
+
+Document ID: TPL-LIB-APP-001
+Version: 1.0
+Date: October 26, 2023*
+
+Section	Details
+1.0 Introduction	This document outlines the test strategy, objectives, and schedule for the initial release of the "Community Library" mobile application (v1.0).
+
+2.0 Test Objectives	To verify that all core functional requirements for the Member and Librarian roles are met, ensuring a stable and usable first release.
+
+3.0 Scope	In-Scope: Functional Testing of: User Authentication, Book Search, Book Checkout (Member), Book Management - Add/Mark Lost (Librarian), Role-Based Access Control (RBAC).
+Out-of-Scope: Non-Functional Testing (Performance, Security, Compatibility). *Note: A basic visual check for rendering on iOS 15+ & Android 11+ will be conducted.*
+
+4.0 Test Strategy	Test Levels: Component & Integration Testing.
+Test Types: Functional, Positive, Negative, Boundary, UI.
+Test Design Techniques: Equivalence Partitioning, Boundary Value Analysis, State Transition, Error Guessing.
+
+5.0 Entry & Exit Criteria	Entry Criteria: A stable build (v1.0.0) is deployed to the QA environment; Test data is prepared.
+Exit Criteria: All test cases executed; No open Critical/High severity defects; Test Case Pass Rate ≥ 95%.
+
+6.0 Defect Management	Defects will be logged in the Jira defect tracking system. They will follow the standard lifecycle: New -> Assigned -> In Progress -> Fixed -> Re-test -> Verified/Reopened -> Closed.
+2. Detailed Test Case Specification
+
+Test Case ID: TC-LIB-LOGIN-001
+Module: Authentication
+Description: Verify successful login with valid Member credentials.
+Pre-condition: A valid Member account exists (Username: lib_member01, Password: Pass@123).
+
+Step	Action	Expected Result	Status (Pass/Fail)
+1	Launch the Library App.	Splash screen appears, then Login screen is displayed.	
+2	Enter lib_member01 in the Username field.	Text is entered and masked.	
+3	Enter Pass@123 in the Password field.	Text is entered and masked.	
+4	Tap the "Log In" button.	User is authenticated. The app navigates to the Member Dashboard. The dashboard header displays "Welcome, Member".	
+
+Test Case ID: TC-LIB-CHKOUT-002
+Module: Book Checkout
+Description: Verify system behavior when a Member attempts to check out a book with status "Checked Out".
+Pre-condition: User is logged in as a Member. Book ID BKK-778 ("The Great Gatsby") has a status of "Checked Out".
+
+Step	Action	Expected Result	Status
+1	From the Member Dashboard, tap the "Search" icon.	Search screen is displayed.	
+2	In the search bar, enter "The Great Gatsby".	Search results display one entry for "The Great Gatsby" with a red "Checked Out" badge.	
+3	Tap on the "The Great Gatsby" result.	Book Details screen opens, showing Title, Author, and a disabled "Check Out" button. A message "This book is currently unavailable" is displayed.	
+4	Attempt to tap the disabled "Check Out" button.	No action occurs. The button state remains disabled.	
+
+
