@@ -1,0 +1,45 @@
+Exploratory Test 
+
+Test ID: ET-ECOMM-CHK-001
+Tester: Genesis Digital
+Focus Area: Checkout Process
+Charter: Explore the checkout process of "BoutiqueThreads.com" to uncover issues related to usability, data validation, and process flow that could frustrate a user or prevent a successful order placement.
+Test 
+Session Duration: 45 minutes
+Tools: Chrome Browser v118, Developer Console, Time: 2:00 PM - 2:45 PM
+
+2. Session-Based Test Management Notes
+
+Session 1: The "Rushed User"
+
+Data: Used guest checkout, autofilled address.
+
+Test Notes:
+
+(+) Autofill worked perfectly for address fields.
+
+(-) Bug Found: On the Payment page, the "Place Order" button remains enabled even before all fields are filled. Clicking it does nothing, with no error message. Heuristic Violation: #5 Error Prevention.
+
+(-) Observation: No progress indicator (e.g., "Step 2 of 3"). User doesn't know how many steps are left. Heuristic Violation: #1 Visibility of System Status.
+
+
+Session 2: The "Fussy User"
+
+Data: Applied promo code WELCOME10, then removed it. Changed shipping method from Standard to Express.
+
+Test Notes:
+
+(+) Cart updated prices correctly when promo code was applied/removed.
+
+(-) Bug Found: After changing the shipping method on the Review page and going back, the selected method reverted to Standard. Heuristic Violation: #3 User Control and Freedom (User's choice was not remembered).
+
+(-) Observation: No "Continue Shopping" link on the Cart page. The only navigation is "Proceed to Checkout" or the browser's back button.
+
+
+3. Heuristic Evaluation Summary Report
+
+#	Heuristic	Finding	Severity	Example from "BoutiqueThreads.com"
+1	Visibility of System Status	Major Issue	High	No checkout progress bar or step indicator.
+3	User Control and Freedom	Major Bug	High	Shipping method selection is not persisted when navigating back.
+5	Error Prevention	Minor Issue	Medium	"Place Order" button should be disabled until form is valid.
+9	Help Users Recognize... Errors	Cosmetic	Low	Error message for invalid CVV is in light grey text, hard to see.
