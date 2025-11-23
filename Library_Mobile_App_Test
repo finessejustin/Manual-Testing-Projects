@@ -1,0 +1,49 @@
+Project 1: The "First Principles" Test - Local Library Mobile App
+Concept: Test a brand new, minimal mobile application for a local library.
+
+This project focuses on the absolute fundamentals: dissecting requirements, designing test cases from scratch, and executing a structured test cycle.
+
+A Quality Project: It forces you to build a test suite from the ground up, emphasizing requirement analysis, test design techniques, and clear bug reporting without the crutch of an existing application.
+
+Step-by-Step Guide:
+Step 1: Requirement Analysis & Test Planning
+The "App": An app with two user roles: Member and Librarian.
+Member Can: Log in, Search for books, View book details (title, author, status: Available/Checked Out), Check out a book (if available), View their checked-out books.
+Librarian Can: Log in, View all books, Add a new book, Update Books status( Checked-out or available), Mark a book as Lost.
+Create a Test Plan:
+Objective: Ensure the core functionalities of the Library Mobile App work as specified for its initial release.
+Scope: Functional testing of Login, Search, Book Management (Check-out, Mark as Lost), and Role-based access.
+Out of Scope: Performance, Security, Compatibility with different devices/OS versions (To do a basic check).
+Strategy: We will use a combination of Positive, Negative, and Boundary testing.
+Entry/Exit Criteria: Entry - Build is delivered by devs. Exit - All Critical/High priority bugs are closed; Test Case pass rate is >95%.
+
+Step 2: Test Case Design
+For the "Login" feature:
+Positive Test: Valid username + valid password -> Successful login, correct home screen based on role.
+Negative Tests:
+Invalid username + valid password -> Appropriate error message.
+Valid username + invalid password -> Appropriate error message.
+Empty username/password -> Appropriate error message.
+Boundary Test: Enter a password with 255 characters (if there's a limit).
+For the "Check out a book" feature:
+Positive Test: Member searches for an "Available" book -> Clicks "Check Out" -> Book status changes to "Checked Out" in system, book appears in member's account.
+Negative Test: Member tries to check out a book already "Checked Out" -> System displays "This book is not available" message.
+State-based Test: What happens if a Librarian marks a "Checked Out" book as "Lost"? Does the member's account update?
+
+Step 3: Test Execution & Defect Reporting
+Execute your test cases. 
+Write a High-Quality Bug Report for a simulated issue : 
+Title: [Member Home] Application crashes when user attempts to scroll through a list of more than 50 checked-out books.
+Description: When a member has more than 50 books in their 'My Books' section, scrolling to the bottom of the list causes the application to force close.
+Steps to Reproduce:
+Log in as a member (e.g., user: member1, pass: pass123).
+Ensure the account has more than 50 books checked out (you may need to use a script or a test account set up by devs).
+Navigate to the 'My Books' section.
+Scroll to the bottom of the list.
+Observe the application crash.
+Expected Result: The list should scroll smoothly, loading all items.
+Actual Result: The application crashes with an "App Not Responding" error.
+Severity: High (Application crash)
+Priority: High (Blocks user from accessing their core data)
+Attachment: Add a screenshot of the error or a screen recording.
+
